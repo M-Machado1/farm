@@ -2,6 +2,7 @@
 # inputs.py
 import json
 import os
+from utils import get_valid_input, get_valid_float
 
 # Caminho do arquivo de dados
 DATA_FILE = "data/inputs.json"
@@ -26,16 +27,16 @@ def add_input():
     inputs = load_inputs()
     print("\n=== Cadastro de Insumo ===")
     insumo = {
-        "id": input("ID do insumo: "),
-        "name": input("Nome do insumo: "),
-        "quantity": float(input("Quantidade disponível: ")),
-        "unit": input("Unidade de medida (kg, L, saco, etc): "),
-        "category": input("Categoria (feed, seed, fertilizer, medicine): ")
+        "id": get_valid_input("ID do insumo: "),
+        "name": get_valid_input("Nome do insumo: "),
+        "quantity": get_valid_float("Quantidade disponível: "),
+        "unit": get_valid_input("Unidade de medida (kg, L, saco, etc): "),
+        "category": get_valid_input("Categoria (feed, seed, fertilizer, medicine): ")
     }
     inputs.append(insumo)
     save_inputs(inputs)
     print("Insumo cadastrado com sucesso!\n")
-
+    
 # Função para listar insumos
 def list_inputs():
     inputs = load_inputs()

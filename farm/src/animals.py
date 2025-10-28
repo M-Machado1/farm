@@ -2,6 +2,10 @@
 # animals.py
 import json
 import os
+from utils import get_valid_input, get_valid_float
+
+
+
 
 DATA_FILE = "data/animals.json"
 
@@ -22,12 +26,13 @@ def add_animal():
     animals = load_animals()
     print("\n=== Cadastro de Animal ===")
     animal = {
-        "id": input("ID do animal: "),
-        "species": input("Espécie: "),
-        "age": float(input("Idade: ")),
-        "weight": float(input("Peso (kg): ")),
+        "id": get_valid_input("ID do animal: "),
+        "species": get_valid_input("Espécie: "),
+        "age": get_valid_float("Idade (em meses ou anos): "),
+        "weight": get_valid_float("Peso (kg): "),
         "status": "active"
     }
+    
     animals.append(animal)
     save_animals(animals)
     print("Animal cadastrado com sucesso!\n")

@@ -1,10 +1,5 @@
 
 # main.py
-# Equipe:
-# Nome 1 - Matrícula
-# Nome 2 - Matrícula
-# Nome 3 - Matrícula
-# Nome 4 - Matrícula
 
 from files import ensure_files
 import animals

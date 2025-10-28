@@ -3,6 +3,7 @@
 import json
 import os
 from datetime import datetime
+from utils import get_valid_input
 
 DATA_FILE = "data/movements.json"
 
@@ -22,10 +23,18 @@ def save_movements(movements):
 def add_movement():
     movements = load_movements()
     print("\n=== Registro de Movimentação ===")
+    
+    valid_types = ["venda", "colheita", "consumo"]
+    while True:
+        m_type = get_valid_input("Tipo (venda, colheita, consumo): ")
+        if m_type.lower() in valid_types:
+            break
+        print("Erro: tipo inválido. Escolha entre venda, colheita ou consumo.")
+    
     movement = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "type": input("Tipo (venda, colheita, consumo): "),
-        "description": input("Descrição: ")
+        "type": m_type,
+        "description": get_valid_input("Descrição: ")
     }
     movements.append(movement)
     save_movements(movements)
