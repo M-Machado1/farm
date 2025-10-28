@@ -32,12 +32,12 @@ def load_harvest_times():
             print("Aviso: harvest_times.json inválido ou corrompido. Usando valores padrão.")
             return {}
 
-def estimate_harvest(crop_type):
+def estimate_harvest(crop_type): # Função atualmente não lê dicionário harvest_times.json.
     harvest_times = load_harvest_times()
     key = crop_type.lower().strip()
     days = harvest_times.get(key, 60)
     if key not in harvest_times:
-        print(f"Aviso: Cultura '{crop_type}' não encontrada em harvest_times.json. Usando valor padrão de {days} dias.")
+        print(f"Aviso: Usando valor padrão de {days} dias para cultura '{crop_type}'")
     return days
 
 def add_plant():

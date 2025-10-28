@@ -1,5 +1,10 @@
-
-# main.py
+"""
+Equipe:
+- Murilo Linhares Pereira Val Machado - 2025012542
+- Fernando Levy Das Chagas - 2025012551
+- João Victor Vasconcelos Cruz - 2025012515
+- Martin Luthero Taaso Sousa e Silva - 2025012444
+"""
 
 from files import ensure_files
 import animals
