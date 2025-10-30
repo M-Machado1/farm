@@ -10,7 +10,7 @@ Equipe:
 Instruções rápidas:
 1. Abra o terminal dentro da pasta `farm/src`.
 2. Execute: `python3 main.py`
-3. O sistema cria automaticamente a pasta `data/` e os arquivos JSON se necessários.
+3. O sistema salva automaticamente na pasta '/data' os dados cadastrados e cria um arquivo 'report.txt' quando pedido um reporte no menu.
 4. Use os menus para cadastrar animais, plantações, insumos, registrar movimentações e gerar relatórios.
 5. Datas devem ser informadas no formato ISO: `YYYY-MM-DD`.
 6. Digite `0` para cancelar a operação durante dos menus dos módulos.
