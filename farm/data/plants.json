@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "id": "A001",
+        "crop_type": "milho",
+        "area": 2.0,
+        "planting_date": "2025-05-28",
+        "harvest_date": "2025-09-25",
+        "status": "planted"
+    },
+    {
+        "id": "A002",
+        "crop_type": "soja",
+        "area": 3.0,
+        "planting_date": "2025-05-06",
+        "harvest_date": "2025-08-24",
+        "status": "planted"
+    },
+    {
+        "id": "A001",
+        "crop_type": "soja",
+        "area": 1.0,
+        "planting_date": "2025-04-21",
+        "harvest_date": "2025-08-09",
+        "status": "planted"
+    },
+    {
+        "id": "A001",
+        "crop_type": "soja",
+        "area": 1.0,
+        "planting_date": "2025-01-01",
+        "harvest_date": "2025-04-21",
+        "status": "planted"
+    },
+    {
+        "id": "A001",
+        "crop_type": "milho",
+        "area": 1.0,
+        "planting_date": "2025-07-10",
+        "harvest_date": "2025-11-07",
+        "status": "planted"
+    }
+]

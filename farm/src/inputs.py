@@ -1,11 +1,11 @@
-
 # inputs.py
 import json
 import os
 from utils import get_valid_input, get_valid_float
 
 # Caminho do arquivo de dados
-DATA_FILE = "data/inputs.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_FILE = os.path.join(BASE_DIR, "data", "inputs.json")
 
 # Função para carregar os insumos
 def load_inputs():

@@ -5,7 +5,8 @@ import os
 from datetime import datetime
 from utils import get_valid_input
 
-DATA_FILE = "data/movements.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_FILE = os.path.join(BASE_DIR, "data", "movements.json")
 
 def load_movements():
     if not os.path.exists(DATA_FILE):

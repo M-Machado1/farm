@@ -4,7 +4,9 @@ import os
 from datetime import timedelta
 from utils import get_valid_input, get_valid_float, get_valid_date
 
-DATA_FILE = "data/plants.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_FILE = os.path.join(BASE_DIR, "data", "plants.json")
+
 
 def load_plants():
     if not os.path.exists(DATA_FILE):
@@ -22,7 +24,7 @@ def save_plants(plants):
         json.dump(plants, f, indent=4, ensure_ascii=False)
 
 def load_harvest_times():
-    file_path = "data/harvest_times.json"
+    file_path = "farm/data/harvest_times.json"
     if not os.path.exists(file_path):
         return {}
     with open(file_path, "r", encoding="utf-8") as f:
@@ -32,13 +34,20 @@ def load_harvest_times():
             print("Aviso: harvest_times.json inválido ou corrompido. Usando valores padrão.")
             return {}
 
-def estimate_harvest(crop_type): # Função atualmente não lê dicionário harvest_times.json.
+def estimate_harvest(crop_type):
     harvest_times = load_harvest_times()
     key = crop_type.lower().strip()
-    days = harvest_times.get(key, 60)
-    if key not in harvest_times:
-        print(f"Aviso: Usando valor padrão de {days} dias para cultura '{crop_type}'")
-    return days
+
+    if not harvest_times:
+        print("Aviso: harvest_times.json não carregado. Usando valor padrão.")
+        return 60
+
+    if key in harvest_times:
+        return harvest_times[key]
+    else:
+        print(f"Aviso: Cultura '{crop_type}' não encontrada no dicionário. Usando valor padrão de 60 dias.")
+        return 60
+
 
 def add_plant():
     plants = load_plants()
